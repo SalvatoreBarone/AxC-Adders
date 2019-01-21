@@ -1,0 +1,17 @@
+project (InAx_adders LANGUAGES C)
+cmake_minimum_required (VERSION 3.1)
+
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/libs)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/libs)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -ggdb3 -O0")
+
+add_library(InAx STATIC ${CMAKE_SOURCE_DIR}/InAx_adders.c)
+
+
+
+
+
+
+
