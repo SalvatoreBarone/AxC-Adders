@@ -2,14 +2,12 @@
 #include <stdlib.h>
 #include <math.h>
 
-int InAx1_sum(int a, int b, int cin);
-int InAx1_carry(int a, int b, int cin);
-
-int InAx2_sum(int a, int b, int cin);
-int InAx2_carry(int a, int b, int cin);
-
-int InAx3_sum(int a, int b, int cin);
-int InAx3_carry(int a, int b, int cin);
+static int InAx1_sum(int a, int b, int cin);
+static int InAx1_carry(int a, int b, int cin);
+static int InAx2_sum(int a, int b, int cin);
+static int InAx2_carry(int a, int b, int cin);
+static int InAx3_sum(int a, int b, int cin);
+static int InAx3_carry(int a, int b, int cin);
 
 int InAx1_adder(int a, int b, int nab)
 {
@@ -69,7 +67,7 @@ int InAx3_adder(int a, int b, int nab)
        	return precise_a + precise_b + acc;	
 }
 
-int InAx1_sum(int a, int b, int cin)
+static int InAx1_sum(int a, int b, int cin)
 {
 	if(	(0 == a && 0 == b && 0 == cin) ||
 	   	(0 == a && 1 == b && 1 == cin) ||
@@ -79,7 +77,7 @@ int InAx1_sum(int a, int b, int cin)
 	return 1;	
 }
 
-int InAx1_carry(int a, int b, int cin)
+static int InAx1_carry(int a, int b, int cin)
 {
 	if(	(0 == a && 0 == b && 0 == cin) ||
 	   	(0 == a && 1 == b && 0 == cin) ||
@@ -89,7 +87,7 @@ int InAx1_carry(int a, int b, int cin)
 	return 1;
 }
 
-int InAx2_sum(int a, int b, int cin)
+static int InAx2_sum(int a, int b, int cin)
 {
 	if(	(0 == a && 0 == b && 0 == cin) ||
 	   	(1 == a && 1 == b && 0 == cin)	)
@@ -98,7 +96,7 @@ int InAx2_sum(int a, int b, int cin)
 }
 
 
-int InAx2_carry(int a, int b, int cin)
+static int InAx2_carry(int a, int b, int cin)
 {
 	if(	(0 == a && 0 == b && 0 == cin) ||
 	   	(0 == a && 0 == b && 1 == cin) ||
@@ -108,7 +106,7 @@ int InAx2_carry(int a, int b, int cin)
 	return 1;
 }
 
-int InAx3_sum(int a, int b, int cin)
+static int InAx3_sum(int a, int b, int cin)
 {
 	if(	(0 == a && 1 == b && 1 == cin) ||
 	   	(1 == a && 0 == b && 1 == cin) ||
@@ -118,7 +116,7 @@ int InAx3_sum(int a, int b, int cin)
 }
 
 
-int InAx3_carry(int a, int b, int cin)
+static int InAx3_carry(int a, int b, int cin)
 {
 	if(	(0 == a && 0 == b && 0 == cin) ||
 	   	(0 == a && 0 == b && 1 == cin) ||
