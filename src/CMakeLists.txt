@@ -7,7 +7,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -ggdb3 -O0")
 
-add_library(InAx STATIC ${CMAKE_SOURCE_DIR}/InAx_adders.cpp)
+add_library(InAx STATIC InAx_adders.cpp)
+target_include_directories(InAx PRIVATE ${CMAKE_SOURCE_DIR}/include)
 
 
 
