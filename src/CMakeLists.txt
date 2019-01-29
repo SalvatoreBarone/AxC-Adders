@@ -5,6 +5,13 @@ add_library(InexactAdders STATIC
         InAx1_adder.cpp 
         InAx2_adder.cpp 
         InAx3_adder.cpp
+        AMA1_adder.cpp
+        AMA2_adder.cpp
+        AMA3_adder.cpp
+        AMA4_adder.cpp
+        AXA1_adder.cpp
+        AXA2_adder.cpp
+        AXA3_adder.cpp
 )
 
 set_target_properties(InexactAdders PROPERTIES PUBLIC_HEADER "${CMAKE_SOURCE_DIR}/include/inexact_adders.h")
