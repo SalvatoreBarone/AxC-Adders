@@ -28,7 +28,9 @@ To use the inexact addition, include the header file in your source file, then u
 * [AMA2](https://ieeexplore.ieee.org/abstract/document/6387646)
 * [AMA3](https://ieeexplore.ieee.org/abstract/document/6387646)
 * [AMA4](https://ieeexplore.ieee.org/abstract/document/6387646)
-* [AXA](https://ieeexplore.ieee.org/abstract/document/6720793)
+* [AXA1](https://ieeexplore.ieee.org/abstract/document/6720793)
+* [AXA2](https://ieeexplore.ieee.org/abstract/document/6720793)
+* [AXA3](https://ieeexplore.ieee.org/abstract/document/6720793)
 
 All the sum functions provide a parameter called ```NAB``` that stands for **N**umber of **A**proximate **B**its and represents the number of the least significant bits that are computed with the chosen inexact adder cell. 
 Note that the remaining ```n-NAB``` digits are computed as an exact sum.
