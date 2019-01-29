@@ -1,5 +1,5 @@
 # AxC Adders
-[![Build Status](https://travis-ci.org/andreaaletto/AxC-Adders.svg?branch=master)](https://travis-ci.org/andreaaletto/AxC-Adders)
+[![Build Status](https://travis-ci.org/andreaaletto/AxC-Adders.svg?branch=master)](https://travis-ci.org/andreaaletto/AxC-Adders) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
 
 AxC Adders is a collection of inexact adders for model-driven development, provided as a C++ static library. 
 
@@ -19,7 +19,7 @@ At the end of the process, you will find:
 * the relative _header file_ in ```/usr/include/inexact_adders.h```.
 
 ### Quick Start
-
+--------
 To use the inexact addition, include the header file in your source file, then use one the its functions. Currently this project supports the model of the following inexact hardware cells:
 * [InAx1](https://ieeexplore.ieee.org/abstract/document/7459392)
 * [InAx2](https://ieeexplore.ieee.org/abstract/document/7459392)
