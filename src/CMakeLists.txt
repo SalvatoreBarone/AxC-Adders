@@ -7,9 +7,14 @@ add_library(InexactAdders STATIC
         InAx3_adder.cpp
 )
 
-target_include_directories(InexactAdders PRIVATE ${CMAKE_SOURCE_DIR}/include)
+set_target_properties(InexactAdders PROPERTIES PUBLIC_HEADER "${CMAKE_SOURCE_DIR}/include/inexact_adders.h")
 
+target_include_directories(InexactAdders PUBLIC ${CMAKE_SOURCE_DIR}/include)
 
+INSTALL(TARGETS InexactAdders
+	ARCHIVE DESTINATION /usr/lib
+	PUBLIC_HEADER DESTINATION /usr/include
+)
 
 
 

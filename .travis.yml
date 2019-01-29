@@ -7,6 +7,7 @@ before_install:
         - cd build
         - cmake .. -G Ninja
 install:
-        - ninja
+        - ninja && sudo ninja install
 script:
-        - ls libs/libInexactAdders.a
+        - ls /usr/lib/libInexactAdders.a
+        - ls /usr/include/inexact_adders.h
