@@ -9,4 +9,4 @@ before_install:
 install:
         - ninja
 script:
-        - ls libs/libInAx.a
+        - ls libs/libInexactAdders.a
