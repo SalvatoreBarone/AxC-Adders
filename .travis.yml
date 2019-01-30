@@ -1,5 +1,7 @@
 sudo: required
-language: C++
+language: cpp
+compiler: gcc
+
 addons:
   apt:
     packages: cmake ninja-build lcov libboost-test-dev libboost-system-dev libboost-filesystem-dev
