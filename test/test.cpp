@@ -32,12 +32,20 @@ BOOST_AUTO_TEST_CASE(InAx1)
 
 BOOST_AUTO_TEST_CASE(InAx2)
 {
+    // exact sum
     BOOST_CHECK_EQUAL(InAx2_adder(0,0,0), 0);
+    BOOST_CHECK_EQUAL(InAx2_adder(0,0,1), 1);
+    BOOST_CHECK_EQUAL(InAx2_adder(0,1,0), 1);
+    BOOST_CHECK_EQUAL(InAx2_adder(0,1,1), 2);
 }
 
 BOOST_AUTO_TEST_CASE(InAx3)
 {
+    // exact sum
     BOOST_CHECK_EQUAL(InAx3_adder(0,0,0), 0);
+    BOOST_CHECK_EQUAL(InAx3_adder(0,0,1), 1);
+    BOOST_CHECK_EQUAL(InAx3_adder(0,1,0), 1);
+    BOOST_CHECK_EQUAL(InAx3_adder(0,1,1), 2);
 }
 
 
@@ -45,17 +53,29 @@ BOOST_AUTO_TEST_CASE(InAx3)
 
 BOOST_AUTO_TEST_CASE(AXA1)
 {
+    // exact sum
     BOOST_CHECK_EQUAL(AXA1_adder(0,0,0), 0);
+    BOOST_CHECK_EQUAL(AXA1_adder(0,0,1), 1);
+    BOOST_CHECK_EQUAL(AXA1_adder(0,1,0), 1);
+    BOOST_CHECK_EQUAL(AXA1_adder(0,1,1), 2);
 }
 
 BOOST_AUTO_TEST_CASE(AXA2)
 {
+    // exact sum
     BOOST_CHECK_EQUAL(AXA2_adder(0,0,0), 0);
+    BOOST_CHECK_EQUAL(AXA2_adder(0,0,1), 1);
+    BOOST_CHECK_EQUAL(AXA2_adder(0,1,0), 1);
+    BOOST_CHECK_EQUAL(AXA2_adder(0,1,1), 2);
 }
 
 BOOST_AUTO_TEST_CASE(AXA3)
 {
+    // exact sum
     BOOST_CHECK_EQUAL(AXA3_adder(0,0,0), 0);
+    BOOST_CHECK_EQUAL(AXA3_adder(0,0,1), 1);
+    BOOST_CHECK_EQUAL(AXA3_adder(0,1,0), 1);
+    BOOST_CHECK_EQUAL(AXA3_adder(0,1,1), 2);
 }
 
 
@@ -63,35 +83,36 @@ BOOST_AUTO_TEST_CASE(AXA3)
 
 BOOST_AUTO_TEST_CASE(AMA1)
 {
+    // exact sum
     BOOST_CHECK_EQUAL(AMA1_adder(0,0,0), 0);
+    BOOST_CHECK_EQUAL(AMA1_adder(0,0,1), 1);
+    BOOST_CHECK_EQUAL(AMA1_adder(0,1,0), 1);
+    BOOST_CHECK_EQUAL(AMA1_adder(0,1,1), 2);
 }
 
 BOOST_AUTO_TEST_CASE(AMA2)
 {
+    // exact sum
     BOOST_CHECK_EQUAL(AMA2_adder(0,0,0), 0);
+    BOOST_CHECK_EQUAL(AMA2_adder(0,0,1), 1);
+    BOOST_CHECK_EQUAL(AMA2_adder(0,1,0), 1);
+    BOOST_CHECK_EQUAL(AMA2_adder(0,1,1), 2);
 }
 
 BOOST_AUTO_TEST_CASE(AMA3)
 {
+    // exact sum
     BOOST_CHECK_EQUAL(AMA3_adder(0,0,0), 0);
+    BOOST_CHECK_EQUAL(AMA3_adder(0,0,1), 1);
+    BOOST_CHECK_EQUAL(AMA3_adder(0,1,0), 1);
+    BOOST_CHECK_EQUAL(AMA3_adder(0,1,1), 2);
 }
 
 BOOST_AUTO_TEST_CASE(AMA4)
 {
+    // exact sum
     BOOST_CHECK_EQUAL(AMA4_adder(0,0,0), 0);
+    BOOST_CHECK_EQUAL(AMA4_adder(0,0,1), 1);
+    BOOST_CHECK_EQUAL(AMA4_adder(0,1,0), 1);
+    BOOST_CHECK_EQUAL(AMA4_adder(0,1,1), 2);
 }
-
-
-
-/*
-
-int InAx1_adder(int nab, int a, int b);
-int InAx2_adder(int nab, int a, int b);
-int InAx3_adder(int nab, int a, int b);
-int AMA1_adder(int nab, int a, int b);
-int AMA2_adder(int nab, int a, int b);
-int AMA3_adder(int nab, int a, int b);
-int AMA4_adder(int nab, int a, int b);
-int AXA_adder(int nab, int a, int b);
-
-*/
