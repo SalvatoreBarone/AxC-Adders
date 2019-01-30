@@ -2,8 +2,9 @@ sudo: required
 language: C++
 addons:
   apt:
-    packages: cmake ninja-build lcov libboost-testing-dev libboost-system-dev libboost-filesystem-dev
+    packages: cmake ninja-build lcov 
 before_install:
+        - sudo apt-get install -y libboost-testing-dev libboost-system-dev libboost-filesystem-dev
         - mkdir build
         - cd build
         - cmake .. -G Ninja
