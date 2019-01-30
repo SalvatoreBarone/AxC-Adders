@@ -1,4 +1,4 @@
-project (InAx_adders LANGUAGES CXX)
+project (AxC_adders LANGUAGES CXX)
 cmake_minimum_required (VERSION 3.1)
 
 add_library(InexactAdders STATIC 

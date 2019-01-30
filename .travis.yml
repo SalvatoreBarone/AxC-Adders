@@ -2,13 +2,20 @@ sudo: required
 language: C++
 addons:
   apt:
-    packages: cmake ninja-build
+    packages: cmake ninja-build lcov
 before_install:
         - mkdir build
         - cd build
         - cmake .. -G Ninja
 install:
         - ninja && sudo ninja install
+after_success:
+        # Create lcov report
+        - lcov --capture --directory . --output-file coverage.info
+        - lcov --remove coverage.info '/usr/*' --output-file coverage.info # filter system-files
+        - lcov --list coverage.info # debug info
+        # Uploading report to CodeCov
+        - bash <(curl -s https://codecov.io/bash) -f coverage.info || echo "Codecov did not collect coverage reports"
 script:
         - ls /usr/lib/libInexactAdders.a
         - ls /usr/include/inexact_adders.h
