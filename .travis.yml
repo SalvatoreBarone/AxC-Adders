@@ -2,13 +2,15 @@ sudo: required
 language: C++
 addons:
   apt:
-    packages: cmake ninja-build lcov
+    packages: cmake ninja-build lcov libboost-testing-dev libboost-system-dev libboost-filesystem-dev
 before_install:
         - mkdir build
         - cd build
         - cmake .. -G Ninja
 install:
-        - ninja && sudo ninja install
+        - ninja
+        - sudo ninja install
+        - ninja test
 after_success:
         # Create lcov report
         - lcov --capture --directory . --output-file coverage.info
