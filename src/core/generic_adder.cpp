@@ -19,39 +19,37 @@
 //
 
 /******************************************************************************
- * @file   AMA4_adder.cpp
+ * @file   generic_adder.cpp
  * @author Andrea Aletto
- * @date   30 gen 2019
- * @brief  Implementation of AMA4 inexact hardware cell
+ * @date   2 feb 2019
+ * @brief  Implementation of a generic inexact adder
  ******************************************************************************/
 
 #include "inexact_adders_core.h"
-#include "inexact_adders.h"
+#include <bitset> 
 
-static bool AMA4_sum(const bool&, const bool&, const bool&);
-static bool AMA4_carry(const bool&, const bool&, const bool&);
-
-int AMA4_adder(int nab, int first_operand, int second_operand )
+int generic_adder(int nab, int first, int second, 
+	bool (*inexact_adder_sum_func)(const bool&, const bool&, const bool&), 
+	bool (*inexact_adder_carry_func)(const bool&, const bool&, const bool&) )
 {
-	return generic_adder(
-		nab, 
-		first_operand, 
-		second_operand, 
-		AMA4_sum,
-		AMA4_carry
-	);
-}
 
-static bool AMA4_sum(const bool &a, const bool &b, const bool &cin)
-{
-	if(	(0 == a && 0 == b && 1 == cin) ||
-	   	(0 == a && 1 == b && 1 == cin) ||
-		(1 == a && 1 == b && 1 == cin))
-		return 1;
-	return 0;	
-}
+    const int length = 32;
+	std::bitset<length> a(first);
+	std::bitset<length> b(second);
+	std::bitset<length+1> sum(0);
+	std::bitset<length+1> carry(0);
 
-static bool AMA4_carry(const bool &a, const bool &b, const bool &cin)
-{
-	return a;
+	for(int i=0; i<nab; i++){
+		sum[i] 		= (*inexact_adder_sum_func)(a[i], b[i], carry[i]);
+		carry[i+1] 	= (*inexact_adder_carry_func)(a[i], b[i], carry[i]);
+	}
+
+	for(int i=nab; i<length;i++){		
+		sum[i] 		= FA_sum(a[i], b[i], carry[i]);
+		carry[i+1] 	= FA_carry(a[i], b[i], carry[i]);
+	}
+
+	sum[length] = carry[length];
+
+	return ( (int)(sum.to_ulong()) );
 }

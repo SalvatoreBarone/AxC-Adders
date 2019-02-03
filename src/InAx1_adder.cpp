@@ -1,6 +1,3 @@
-#include "inexact_adders.h"
-#include <stdlib.h>
-#include <math.h>
 //
 // AxC Adders - A collection of inexact adders for model-driven development
 // Copyright (C) 2019 Andrea Aletto <andrea.aletto8@gmail.com>
@@ -28,44 +25,39 @@
  * @brief  Implementation of InAx1 inexact hardware cell
  ******************************************************************************/
 
-static int InAx1_sum(int a, int b, int cin);
-static int InAx1_carry(int a, int b, int cin);
+#include "inexact_adders.h"
+#include "inexact_adders_core.h"
 
-int InAx1_adder(int nab, int a, int b )
+static bool InAx1_sum(const bool &a, const bool &b, const bool &c_in);
+static bool InAx1_carry(const bool &a, const bool &b, const bool &c_in);
+
+int InAx1_adder(int nab, int first_operand, int second_operand )
 {
-	int i;
-       	int current_carry = 0;
-	int lsb_a, lsb_b, lsb_sum;
-        int acc = 0;
-	for(i = 0; i < nab; i++){
-		lsb_a = (a & (1U<<i)) >> i;
-		lsb_b = (b & (1U<<i)) >> i;
-		lsb_sum = InAx1_sum(lsb_a, lsb_b, current_carry);
-		acc |= (lsb_sum << i);
-		current_carry = InAx1_carry(lsb_a, lsb_b, current_carry);
-	}
-	int mask = ~((1U << nab) -1);
-	int precise_a = a & mask; 
-	int precise_b = b & mask;
-       	return precise_a + precise_b + acc;	
+	return generic_adder(
+		nab, 
+		first_operand, 
+		second_operand, 
+		InAx1_sum,
+		InAx1_carry
+	);
 }
 
-static int InAx1_sum(int a, int b, int cin)
+static bool InAx1_sum(const bool &a, const bool &b, const bool &c_in)
 {
-	if(	(0 == a && 0 == b && 0 == cin) ||
-	   	(0 == a && 1 == b && 1 == cin) ||
-	   	(1 == a && 0 == b && 1 == cin) ||		
-	   	(1 == a && 1 == b && 0 == cin)	)
+	if(	(0 == a && 0 == b && 0 == c_in) ||
+	   	(0 == a && 1 == b && 1 == c_in) ||
+	   	(1 == a && 0 == b && 1 == c_in) ||		
+	   	(1 == a && 1 == b && 0 == c_in)	)
 		return 0;
 	return 1;	
 }
 
-static int InAx1_carry(int a, int b, int cin)
+static bool InAx1_carry(const bool &a, const bool &b, const bool &c_in)
 {
-	if(	(0 == a && 0 == b && 0 == cin) ||
-	   	(0 == a && 1 == b && 0 == cin) ||
-	   	(1 == a && 0 == b && 0 == cin) ||		
-	   	(1 == a && 1 == b && 0 == cin)	)
+	if(	(0 == a && 0 == b && 0 == c_in) ||
+	   	(0 == a && 1 == b && 0 == c_in) ||
+	   	(1 == a && 0 == b && 0 == c_in) ||		
+	   	(1 == a && 1 == b && 0 == c_in)	)
 		return 0;
 	return 1;
 }

@@ -25,38 +25,29 @@
  * @brief  Implementation of AXA1 inexact hardware cell
  ******************************************************************************/
 
+#include "inexact_adders_core.h"
 #include "inexact_adders.h"
-#include <stdlib.h>
-#include <math.h>
 
-static int AXA1_sum(int a, int b, int cin);
-static int AXA1_carry(int a, int b, int cin);
+static bool AXA1_sum(const bool&, const bool&, const bool&);
+static bool AXA1_carry(const bool&, const bool&, const bool&);
 
-int AXA1_adder(int nab, int a, int b )
+int AXA1_adder(int nab, int first_operand, int second_operand )
 {
-	int i;
-       	int current_carry = 0;
-	int lsb_a, lsb_b, lsb_sum;
-        int acc = 0;
-	for(i = 0; i < nab; i++){
-		lsb_a = (a & (1U<<i)) >> i;
-		lsb_b = (b & (1U<<i)) >> i;
-		lsb_sum = AXA1_sum(lsb_a, lsb_b, current_carry);
-		acc |= (lsb_sum << i);
-		current_carry = AXA1_carry(lsb_a, lsb_b, current_carry);
-	}
-	int mask = ~((1U << nab) -1);
-	int precise_a = a & mask; 
-	int precise_b = b & mask;
-       	return precise_a + precise_b + acc;	
+	return generic_adder(
+		nab, 
+		first_operand, 
+		second_operand, 
+		AXA1_sum,
+		AXA1_carry
+	);
 }
 
-static int AXA1_sum(int a, int b, int cin)
+static bool AXA1_sum(const bool &a, const bool &b, const bool &cin)
 {
 	return cin;	
 }
 
-static int AXA1_carry(int a, int b, int cin)
+static bool AXA1_carry(const bool &a, const bool &b, const bool &cin)
 {
 	if(	(0 == a && 0 == b && 0 == cin) ||
 	   	(0 == a && 0 == b && 1 == cin) ||
