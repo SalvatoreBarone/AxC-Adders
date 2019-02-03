@@ -1,5 +1,6 @@
 # AxC Adders
-[![Build Status](https://travis-ci.org/andreaaletto/AxC-Adders.svg?branch=master)](https://travis-ci.org/andreaaletto/AxC-Adders) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![codecov](https://codecov.io/gh/andreaaletto/AxC-Adders/branch/master/graph/badge.svg)](https://codecov.io/gh/andreaaletto/AxC-Adders)
+[![Build Status](https://travis-ci.org/andreaaletto/AxC-Adders.svg?branch=master)](https://travis-ci.org/andreaaletto/AxC-Adders)[![codecov](https://codecov.io/gh/andreaaletto/AxC-Adders/branch/master/graph/badge.svg)](https://codecov.io/gh/andreaaletto/AxC-Adders) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
+
 
 AxC Adders is a collection of inexact adders for model-driven development, provided as a C++ static library. 
 
@@ -36,6 +37,81 @@ All the sum functions provide a parameter called ```NAB``` that stands for **N**
 Note that the remaining ```n-NAB``` digits are computed as an exact sum.
 
 The input operands are of type ```int``` and are managed as **32-bits unsigned integer numbers**.
+
+### Test the library
+--------
+An automated test suite is provided with the library source, based on __boost library__. Read this section to understand how to run the automated tests.
+First of all, you need to install boost components, assuming you're running a Debian based Linux distro, run the following command:
+```
+sudo apt-get install libboost-test-dev libboost-system-dev libboost-filesystem-dev
+```
+
+Now build the library and run _ctest_:
+```
+$ mkdir build && cd build
+$ cmake .. -G Ninja
+$ ninja && sudo ninja install
+$ ctest ..
+```
+
+To see what tests are been implemented, please refer to ```test/test.cpp``` file.
+ 
+### Extend the library
+--------
+This library is implemented to be extended by adding new hardware cell models. In order to do this, you need the implement the following steps.
+
+#### Choose your adder signature
+Open the file ```inexact_adders.h``` and add a new function declaration, that will be available outside of the library. 
+E.g. ```int MyCell_adder(int nab, int first_operand, int second_operand)```
+
+#### Define your model
+Create a new _cpp_ file into ```src``` folder. In this file you have to include ```inexact_adders_core.h``` and ```inexact_adders.h```. Now you have to implement the model of your hardware cell declaring the following two functions:
+* Sum function - ```bool MyCell_sum(const bool &a, const bool &b, const bool &cin)```
+* Carry function - ```bool MyCell_carry(const bool &a, const bool &b, const bool &cin)```
+
+Finally implement the function declared in the step 1. Be sure of using the ```generic_adder``` function, passing it:
+* the number of approximate bits, 
+* the two operands, 
+* a pointer to sum function, 
+* a pointer to carry function.
+
+An implementation could be the following:
+```
+int MyCell_adder(int nab, int first_operand, int second_operand )
+{
+	return generic_adder(
+		nab, 
+		first_operand, 
+		second_operand, 
+		MyCell_sum,
+		MyCell_carry
+	);
+}
+```
+
+#### Prepare your cell for build phase
+Finally, you have to add the newly created _cpp_ file to ```src/CMakeLists.txt``` in the ```add_library``` directive, at the end of the _cpp_ file list.
+
+```
+add_library(InexactAdders STATIC 
+        core/ExactFullAdder.cpp
+        core/generic_adder.cpp
+        InAx1_adder.cpp 
+        InAx2_adder.cpp 
+        InAx3_adder.cpp
+        AMA1_adder.cpp
+        AMA2_adder.cpp
+        AMA3_adder.cpp
+        AMA4_adder.cpp
+        AXA1_adder.cpp
+        AXA2_adder.cpp
+        AXA3_adder.cpp
+        
+        MyCell.cpp
+)
+```
+Now, you can build and install the version of InexactAdders library that includes your custom hardware cell.
+
 
 #### LICENSE
 --------
