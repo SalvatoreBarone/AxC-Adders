@@ -1,5 +1,5 @@
 # AxC Adders
-[![Build Status](https://travis-ci.org/andreaaletto/AxC-Adders.svg?branch=master)](https://travis-ci.org/andreaaletto/AxC-Adders)[![codecov](https://codecov.io/gh/andreaaletto/AxC-Adders/branch/master/graph/badge.svg)](https://codecov.io/gh/andreaaletto/AxC-Adders) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
+[![Build Status](https://travis-ci.org/andreaaletto/AxC-Adders.svg?branch=master)](https://travis-ci.org/andreaaletto/AxC-Adders) [![codecov](https://codecov.io/gh/andreaaletto/AxC-Adders/branch/master/graph/badge.svg)](https://codecov.io/gh/andreaaletto/AxC-Adders) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
 
 
 AxC Adders is a collection of inexact adders for model-driven development, provided as a C++ static library. 
