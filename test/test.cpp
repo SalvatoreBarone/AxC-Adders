@@ -53,7 +53,7 @@ BOOST_AUTO_TEST_CASE(InAx1)
     BOOST_CHECK_EQUAL(InAx1_adder(2, 10,  10 ), 16 );
     BOOST_CHECK_EQUAL(InAx1_adder(2, 13,  4  ), 17 );
     BOOST_CHECK_EQUAL(InAx1_adder(2, 9,   9  ), 16 );
-    // BOOST_CHECK_EQUAL(InAx1_adder(2, 145, 15 ), 222);  //FIXME: this test fails
+    BOOST_CHECK_EQUAL(InAx1_adder(2, 145, 15 ), 158);
 
 }
 

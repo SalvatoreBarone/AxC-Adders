@@ -2,6 +2,8 @@ project (AxC_adders LANGUAGES CXX)
 cmake_minimum_required (VERSION 3.1)
 
 add_library(InexactAdders STATIC 
+        core/ExactFullAdder.cpp
+        core/generic_adder.cpp
         InAx1_adder.cpp 
         InAx2_adder.cpp 
         InAx3_adder.cpp

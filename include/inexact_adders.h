@@ -22,21 +22,21 @@
  * @file   inexact_adders.h
  * @author Andrea Aletto
  * @date   30 gen 2019
- * @brief  Header file for the static library InexactAdders
+ * @brief  Public header file for the static library InexactAdders
  ******************************************************************************/
 
 #ifndef INEXACT_ADDERS_H
 #define INEXACT_ADDERS_H
 
-int InAx1_adder(int nab, int a, int b);
-int InAx2_adder(int nab, int a, int b);
-int InAx3_adder(int nab, int a, int b);
-int AMA1_adder(int nab, int a, int b);
-int AMA2_adder(int nab, int a, int b);
-int AMA3_adder(int nab, int a, int b);
-int AMA4_adder(int nab, int a, int b);
-int AXA1_adder(int nab, int a, int b);
-int AXA2_adder(int nab, int a, int b);
-int AXA3_adder(int nab, int a, int b);
+int InAx1_adder (int nab, int first_operand, int second_operand);
+int InAx2_adder (int nab, int first_operand, int second_operand);
+int InAx3_adder (int nab, int first_operand, int second_operand);
+int AMA1_adder  (int nab, int first_operand, int second_operand);
+int AMA2_adder  (int nab, int first_operand, int second_operand);
+int AMA3_adder  (int nab, int first_operand, int second_operand);
+int AMA4_adder  (int nab, int first_operand, int second_operand);
+int AXA1_adder  (int nab, int first_operand, int second_operand);
+int AXA2_adder  (int nab, int first_operand, int second_operand);
+int AXA3_adder  (int nab, int first_operand, int second_operand);
 
 #endif /* INEXACT_ADDERS_H */
