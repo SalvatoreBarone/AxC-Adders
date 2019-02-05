@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.1)
 project(AxC-adders LANGUAGES CXX)
+enable_testing ()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -Wextra -ggdb3 -O0 --coverage")
 
@@ -9,9 +10,7 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/libs)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/libs)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(BOOST_TEST_LOG_LEVEL message)
+set(CTEST_OUTPUT_ON_FAILURE 1)
 
 add_subdirectory(src)
 add_subdirectory(test)
-
-enable_testing ()
-add_test (NAME InexactAddersTest COMMAND Test)
