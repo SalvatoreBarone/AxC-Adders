@@ -1,4 +1,4 @@
-set (target_name "InAx2_test")
+set (target_name "InAx3_test")
 
 find_package (Boost COMPONENTS system filesystem unit_test_framework REQUIRED)
 include_directories (${TEST_SOURCE_DIR}/src

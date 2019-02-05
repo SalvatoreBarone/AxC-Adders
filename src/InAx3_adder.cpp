@@ -47,7 +47,8 @@ static bool InAx3_sum(const bool &a, const bool &b, const bool &cin)
 {
 	if(	(0 == a && 1 == b && 1 == cin) ||
 	   	(1 == a && 0 == b && 1 == cin) ||
-	   	(1 == a && 1 == b && 0 == cin)	)
+	   	(1 == a && 1 == b && 0 == cin) ||
+		(1 == a && 1 == b && 1 == cin)  )
 		return 0;
 	return 1;	
 }
