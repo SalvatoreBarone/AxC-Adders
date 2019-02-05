@@ -19,47 +19,46 @@
 //
 
 /******************************************************************************
- * @file   InAx3_adder.cpp
+ * @file   InAx1_test.cpp
  * @author Andrea Aletto
  * @date   30 gen 2019
- * @brief  Implementation of InAx3 inexact hardware cell
+ * @brief  Test suite for InAx1 hardware cell
  ******************************************************************************/
 
-#include "inexact_adders_core.h"
+#define BOOST_TEST_MODULE InAx1_test
+#include <boost/test/unit_test.hpp>
+#include <climits>
+#include <iostream>
+using namespace std;
+
 #include "inexact_adders.h"
 
-
-static bool InAx3_sum(const bool&, const bool&, const bool&);
-static bool InAx3_carry(const bool&, const bool&, const bool&);
-
-int InAx3_adder(int nab, int first_operand, int second_operand)
-{
-	return generic_adder(
-		nab, 
-		first_operand, 
-		second_operand, 
-		InAx3_sum,
-		InAx3_carry
-	);
+BOOST_AUTO_TEST_CASE(InAx1_exact_sum)
+{    
+    // exact sum
+    BOOST_CHECK_EQUAL(InAx1_adder(0,0,0), 0);
+    BOOST_CHECK_EQUAL(InAx1_adder(0,0,1), 1);
+    BOOST_CHECK_EQUAL(InAx1_adder(0,1,0), 1);
+    BOOST_CHECK_EQUAL(InAx1_adder(0,1,1), 2);
 }
 
-static bool InAx3_sum(const bool &a, const bool &b, const bool &cin)
+BOOST_AUTO_TEST_CASE(InAx1_inexact_cell)
 {
-	if(	(0 == a && 1 == b && 1 == cin) ||
-	   	(1 == a && 0 == b && 1 == cin) ||
-	   	(1 == a && 1 == b && 0 == cin) ||
-		(1 == a && 1 == b && 1 == cin)  )
-		return 0;
-	return 1;	
+    // inexact cell c_in=0
+    BOOST_CHECK_EQUAL(InAx1_adder(1,0,0), 0);
+    BOOST_CHECK_EQUAL(InAx1_adder(1,0,1), 1);
+    BOOST_CHECK_EQUAL(InAx1_adder(1,1,0), 1);
+    BOOST_CHECK_EQUAL(InAx1_adder(1,1,1), 0);
+
+    // inexact cell c_in=1
+    BOOST_CHECK_EQUAL(InAx1_adder(2,1,1), 0);
+    BOOST_CHECK_EQUAL(InAx1_adder(2,5,3), 6);
+    BOOST_CHECK_EQUAL(InAx1_adder(2,3,5), 6);
+    BOOST_CHECK_EQUAL(InAx1_adder(2,3,3), 0);
+
 }
 
-
-static bool InAx3_carry(const bool &a, const bool &b, const bool &cin)
+BOOST_AUTO_TEST_CASE(InAx1_sys)
 {
-	if(	(0 == a && 0 == b && 0 == cin) ||
-	   	(0 == a && 0 == b && 1 == cin) ||
-	   	(0 == a && 1 == b && 0 == cin) ||		
-	   	(1 == a && 0 == b && 0 == cin)	)
-		return 0;
-	return 1;
+    BOOST_CHECK_EQUAL(InAx1_adder(3,23,21), 34);
 }
