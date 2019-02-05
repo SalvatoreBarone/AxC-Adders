@@ -33,8 +33,6 @@ using namespace std;
 
 #include "inexact_adders.h"
 
-/************* InAx ADDERS *************/
-
 BOOST_AUTO_TEST_CASE(InAx3_exact_sum)
 {    
     // exact sum

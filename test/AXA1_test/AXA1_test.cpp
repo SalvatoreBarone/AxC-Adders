@@ -19,13 +19,13 @@
 //
 
 /******************************************************************************
- * @file   InAx1_test.cpp
+ * @file   AXA1_test.cpp
  * @author Andrea Aletto
- * @date   30 gen 2019
- * @brief  Test suite for InAx1 hardware cell
+ * @date   5 feb 2019
+ * @brief  Test suite for AXA1 hardware cell
  ******************************************************************************/
 
-#define BOOST_TEST_MODULE InAx1_test
+#define BOOST_TEST_MODULE AXA1_test
 #include <boost/test/unit_test.hpp>
 #include <climits>
 #include <iostream>
@@ -33,32 +33,33 @@ using namespace std;
 
 #include "inexact_adders.h"
 
-BOOST_AUTO_TEST_CASE(InAx1_exact_sum)
+BOOST_AUTO_TEST_CASE(AXA1_exact_sum)
 {    
     // exact sum
-    BOOST_CHECK_EQUAL(InAx1_adder(0,0,0), 0);
-    BOOST_CHECK_EQUAL(InAx1_adder(0,0,1), 1);
-    BOOST_CHECK_EQUAL(InAx1_adder(0,1,0), 1);
-    BOOST_CHECK_EQUAL(InAx1_adder(0,1,1), 2);
+    BOOST_CHECK_EQUAL(AXA1_adder(0,0,0), 0);
+    BOOST_CHECK_EQUAL(AXA1_adder(0,0,1), 1);
+    BOOST_CHECK_EQUAL(AXA1_adder(0,1,0), 1);
+    BOOST_CHECK_EQUAL(AXA1_adder(0,1,1), 2);
 }
 
-BOOST_AUTO_TEST_CASE(InAx1_inexact_cell)
+BOOST_AUTO_TEST_CASE(AXA1_inexact_cell)
 {
     // inexact cell c_in=0
-    BOOST_CHECK_EQUAL(InAx1_adder(1,0,0), 0);
-    BOOST_CHECK_EQUAL(InAx1_adder(1,0,1), 1);
-    BOOST_CHECK_EQUAL(InAx1_adder(1,1,0), 1);
-    BOOST_CHECK_EQUAL(InAx1_adder(1,1,1), 0);
+    BOOST_CHECK_EQUAL(AXA1_adder(1,0,0), 0);
+    BOOST_CHECK_EQUAL(AXA1_adder(1,0,1), 2);
+    BOOST_CHECK_EQUAL(AXA1_adder(1,1,0), 2);
+    BOOST_CHECK_EQUAL(AXA1_adder(1,1,1), 2);
 
     // inexact cell c_in=1
-    BOOST_CHECK_EQUAL(InAx1_adder(2,1,1), 0);
-    BOOST_CHECK_EQUAL(InAx1_adder(2,5,3), 6);
-    BOOST_CHECK_EQUAL(InAx1_adder(2,3,5), 6);
-    BOOST_CHECK_EQUAL(InAx1_adder(2,3,3), 0);
+    BOOST_CHECK_EQUAL(AXA1_adder(2,1,0), 2);
+    BOOST_CHECK_EQUAL(AXA1_adder(2,1,2), 2);
+    BOOST_CHECK_EQUAL(AXA1_adder(2,3,0), 2);
+    BOOST_CHECK_EQUAL(AXA1_adder(2,3,2), 6);
 
 }
 
-BOOST_AUTO_TEST_CASE(InAx1_sys)
+BOOST_AUTO_TEST_CASE(AXA1_sys)
 {
-    BOOST_CHECK_EQUAL(InAx1_adder(3,23,21), 34);
+    BOOST_CHECK_EQUAL(AXA1_adder(4,39, 34), 70);
+    BOOST_CHECK_EQUAL(AXA1_adder(4,41, 45), 90);
 }
