@@ -8,7 +8,7 @@ addons:
 before_install:
         - mkdir build
         - cd build
-        - cmake .. -G Ninja
+        - cmake -DCMAKE_BUILD_TYPE=Debug -G Ninja ..
 install:
         - ninja
         - sudo ninja install
