@@ -98,9 +98,6 @@ int inexactAdder(int nab, int first_operand, int second_operand, InexactAdderTyp
 			return AXA3_adder (nab, first_operand, second_operand);
 			break;
 	
-		default:
-			// assert(false && "\nUnexpected adder type.\n");
-			break;
 	}
 
 }
