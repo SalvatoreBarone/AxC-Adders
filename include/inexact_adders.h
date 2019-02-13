@@ -28,6 +28,19 @@
 #ifndef INEXACT_ADDERS_H
 #define INEXACT_ADDERS_H
 
+enum InexactAdderType{
+    InAx1,
+    InAx2,
+    InAx3,
+    AMA1,
+    AMA2,
+    AMA3,
+    AMA4,
+    AXA1,
+    AXA2,
+    AXA3
+};
+
 int InAx1_adder (int nab, int first_operand, int second_operand);
 int InAx2_adder (int nab, int first_operand, int second_operand);
 int InAx3_adder (int nab, int first_operand, int second_operand);
@@ -38,5 +51,7 @@ int AMA4_adder  (int nab, int first_operand, int second_operand);
 int AXA1_adder  (int nab, int first_operand, int second_operand);
 int AXA2_adder  (int nab, int first_operand, int second_operand);
 int AXA3_adder  (int nab, int first_operand, int second_operand);
+
+int inexactAdder(int nab, int first_operand, int second_operand, InexactAdderType cellType);
 
 #endif /* INEXACT_ADDERS_H */

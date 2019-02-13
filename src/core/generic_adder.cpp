@@ -26,6 +26,7 @@
  ******************************************************************************/
 
 #include "inexact_adders_core.h"
+#include "inexact_adders.h"
 #include <bitset> 
 
 int generic_adder(int nab, int first, int second, 
@@ -52,4 +53,54 @@ int generic_adder(int nab, int first, int second,
 	sum[length] = carry[length];
 
 	return ( (int)(sum.to_ulong()) );
+}
+
+int inexactAdder(int nab, int first_operand, int second_operand, InexactAdderType cellType){
+
+	switch (cellType) {
+		case InexactAdderType::InAx1 :
+			return InAx1_adder (nab, first_operand, second_operand);
+			break;
+
+		case InexactAdderType::InAx2 :
+			return InAx2_adder (nab, first_operand, second_operand);
+			break;
+
+		case InexactAdderType::InAx3 :
+			return InAx3_adder (nab, first_operand, second_operand);
+			break;
+
+		case InexactAdderType::AMA1 :
+			return AMA1_adder (nab, first_operand, second_operand);
+			break;
+
+		case InexactAdderType::AMA2 :
+			return AMA2_adder (nab, first_operand, second_operand);
+			break;
+
+		case InexactAdderType::AMA3 :
+			return AMA3_adder (nab, first_operand, second_operand);
+			break;
+
+		case InexactAdderType::AMA4 :
+			return AMA4_adder (nab, first_operand, second_operand);
+			break;
+
+		case InexactAdderType::AXA1 :
+			return AXA1_adder (nab, first_operand, second_operand);
+			break;
+
+		case InexactAdderType::AXA2 :
+			return AXA2_adder (nab, first_operand, second_operand);
+			break;
+
+		case InexactAdderType::AXA3 :
+			return AXA3_adder (nab, first_operand, second_operand);
+			break;
+	
+		default:
+			// assert(false && "\nUnexpected adder type.\n");
+			break;
+	}
+
 }
