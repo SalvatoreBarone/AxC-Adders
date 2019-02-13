@@ -58,43 +58,43 @@ int generic_adder(int nab, int first, int second,
 int inexactAdder(int nab, int first_operand, int second_operand, InexactAdderType cellType){
 
 	switch (cellType) {
-		case InexactAdderType::InAx1 :
+		case InAx1 :
 			return InAx1_adder (nab, first_operand, second_operand);
 			break;
 
-		case InexactAdderType::InAx2 :
+		case InAx2 :
 			return InAx2_adder (nab, first_operand, second_operand);
 			break;
 
-		case InexactAdderType::InAx3 :
+		case InAx3 :
 			return InAx3_adder (nab, first_operand, second_operand);
 			break;
 
-		case InexactAdderType::AMA1 :
+		case AMA1 :
 			return AMA1_adder (nab, first_operand, second_operand);
 			break;
 
-		case InexactAdderType::AMA2 :
+		case AMA2 :
 			return AMA2_adder (nab, first_operand, second_operand);
 			break;
 
-		case InexactAdderType::AMA3 :
+		case AMA3 :
 			return AMA3_adder (nab, first_operand, second_operand);
 			break;
 
-		case InexactAdderType::AMA4 :
+		case AMA4 :
 			return AMA4_adder (nab, first_operand, second_operand);
 			break;
 
-		case InexactAdderType::AXA1 :
+		case AXA1 :
 			return AXA1_adder (nab, first_operand, second_operand);
 			break;
 
-		case InexactAdderType::AXA2 :
+		case AXA2 :
 			return AXA2_adder (nab, first_operand, second_operand);
 			break;
 
-		case InexactAdderType::AXA3 :
+		case AXA3 :
 			return AXA3_adder (nab, first_operand, second_operand);
 			break;
 	

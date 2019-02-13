@@ -29,16 +29,16 @@
 #define INEXACT_ADDERS_H
 
 enum InexactAdderType{
-    InAx1,
-    InAx2,
-    InAx3,
-    AMA1,
-    AMA2,
-    AMA3,
-    AMA4,
-    AXA1,
-    AXA2,
-    AXA3
+    InAx1 = 0,
+    InAx2 = 1,
+    InAx3 = 2,
+    AMA1  = 3,
+    AMA2  = 4,
+    AMA3  = 5,
+    AMA4  = 6,
+    AXA1  = 7,
+    AXA2  = 8,
+    AXA3  = 9
 };
 
 int InAx1_adder (int nab, int first_operand, int second_operand);
