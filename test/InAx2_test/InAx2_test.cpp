@@ -36,30 +36,36 @@ using namespace std;
 BOOST_AUTO_TEST_CASE(InAx2_exact_sum)
 {    
     // exact sum
-    BOOST_CHECK_EQUAL(InAx2_adder(0,0,0), 0);
-    BOOST_CHECK_EQUAL(InAx2_adder(0,0,1), 1);
-    BOOST_CHECK_EQUAL(InAx2_adder(0,1,0), 1);
-    BOOST_CHECK_EQUAL(InAx2_adder(0,1,1), 2);
+    BOOST_CHECK_EQUAL(InAx2_adder(0,0,0,0), 0);
+    BOOST_CHECK_EQUAL(InAx2_adder(0,0,1,0), 1);
+    BOOST_CHECK_EQUAL(InAx2_adder(0,1,0,0), 1);
+    BOOST_CHECK_EQUAL(InAx2_adder(0,1,1,0), 2);
+
+    //exact sub
+    BOOST_CHECK_EQUAL(InAx1_adder(0,0,0,1), 0);
+    BOOST_CHECK_EQUAL(InAx1_adder(0,0,1,1), -1);
+    BOOST_CHECK_EQUAL(InAx1_adder(0,1,0,1), 1);
+    BOOST_CHECK_EQUAL(InAx1_adder(0,1,1,1), 0);
 }
 
 BOOST_AUTO_TEST_CASE(InAx2_inexact_cell)
 {
     // inexact cell c_in=0
-    BOOST_CHECK_EQUAL(InAx2_adder(1,0,0), 0);
-    BOOST_CHECK_EQUAL(InAx2_adder(1,0,1), 1);
-    BOOST_CHECK_EQUAL(InAx2_adder(1,1,0), 1);
-    BOOST_CHECK_EQUAL(InAx2_adder(1,1,1), 2);
+    BOOST_CHECK_EQUAL(InAx2_adder(1,0,0,0), 0);
+    BOOST_CHECK_EQUAL(InAx2_adder(1,0,1,0), 1);
+    BOOST_CHECK_EQUAL(InAx2_adder(1,1,0,0), 1);
+    BOOST_CHECK_EQUAL(InAx2_adder(1,1,1,0), 2);
 
     // inexact cell c_in=1
-    BOOST_CHECK_EQUAL(InAx2_adder(2,1,1), 2);
-    BOOST_CHECK_EQUAL(InAx2_adder(2,3,1), 6);
-    BOOST_CHECK_EQUAL(InAx2_adder(2,1,3), 6);
-    BOOST_CHECK_EQUAL(InAx2_adder(2,3,3), 6);
+    BOOST_CHECK_EQUAL(InAx2_adder(2,1,1,0), 2);
+    BOOST_CHECK_EQUAL(InAx2_adder(2,3,1,0), 6);
+    BOOST_CHECK_EQUAL(InAx2_adder(2,1,3,0), 6);
+    BOOST_CHECK_EQUAL(InAx2_adder(2,3,3,0), 6);
 
 }
 
 BOOST_AUTO_TEST_CASE(InAx2_sys)
 {
-    BOOST_CHECK_EQUAL(InAx2_adder(3,21,23), 46);
-    BOOST_CHECK_EQUAL(InAx2_adder(3,17,19), 38);
+    BOOST_CHECK_EQUAL(InAx2_adder(3,21,23,0), 46);
+    BOOST_CHECK_EQUAL(InAx2_adder(3,17,19,0), 38);
 }

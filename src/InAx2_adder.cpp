@@ -31,14 +31,15 @@
 static bool InAx2_sum(const bool&, const bool&, const bool&);
 static bool InAx2_carry(const bool&, const bool&, const bool&);
 
-int InAx2_adder(int nab, int first_operand, int second_operand)
+int InAx2_adder(int nab, int first_operand, int second_operand, bool isSub)
 {
 	return generic_adder(
 		nab, 
 		first_operand, 
 		second_operand, 
 		InAx2_sum,
-		InAx2_carry
+		InAx2_carry,
+		isSub
 	);
 }
 

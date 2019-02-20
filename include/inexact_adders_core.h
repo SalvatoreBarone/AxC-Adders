@@ -30,7 +30,7 @@
 
 bool FA_sum(const bool&, const bool&, const bool&);
 bool FA_carry(const bool&, const bool&, const bool&);
-int generic_adder(int, int, int, bool (*inexact_adder_sum)(const bool&, const bool&, const bool&), bool (*inexact_adder_carry)(const bool&, const bool&, const bool&) );
+int generic_adder(int, int, int, bool (*inexact_adder_sum)(const bool&, const bool&, const bool&), bool (*inexact_adder_carry)(const bool&, const bool&, const bool&), bool );
 
 
 #endif /* INEXACT_ADDERS_CORE_H */

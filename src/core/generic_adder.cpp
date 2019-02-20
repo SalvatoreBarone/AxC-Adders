@@ -31,14 +31,15 @@
 
 int generic_adder(int nab, int first, int second, 
 	bool (*inexact_adder_sum_func)(const bool&, const bool&, const bool&), 
-	bool (*inexact_adder_carry_func)(const bool&, const bool&, const bool&) )
+	bool (*inexact_adder_carry_func)(const bool&, const bool&, const bool&),
+	bool isSub)
 {
 
     const int length = 32;
 	std::bitset<length> a(first);
-	std::bitset<length> b(second);
-	std::bitset<length+1> sum(0);
-	std::bitset<length+1> carry(0);
+	std::bitset<length> b(isSub ? ~second : second);
+	std::bitset<length+1> sum(0U);
+	std::bitset<length+1> carry(isSub ? 1U : 0U);
 
 	for(int i=0; i<nab; i++){
 		sum[i] 		= (*inexact_adder_sum_func)(a[i], b[i], carry[i]);
@@ -55,47 +56,47 @@ int generic_adder(int nab, int first, int second,
 	return ( (int)(sum.to_ulong()) );
 }
 
-int inexactAdder(int nab, int first_operand, int second_operand, InexactAdderType cellType){
+int inexactAdder(int nab, int first_operand, int second_operand, bool isSub, InexactAdderType cellType){
 
 	switch (cellType) {
 		case InAx1 :
-			return InAx1_adder (nab, first_operand, second_operand);
+			return InAx1_adder (nab, first_operand, second_operand, isSub);
 			break;
 
 		case InAx2 :
-			return InAx2_adder (nab, first_operand, second_operand);
+			return InAx2_adder (nab, first_operand, second_operand, isSub);
 			break;
 
 		case InAx3 :
-			return InAx3_adder (nab, first_operand, second_operand);
+			return InAx3_adder (nab, first_operand, second_operand, isSub);
 			break;
 
 		case AMA1 :
-			return AMA1_adder (nab, first_operand, second_operand);
+			return AMA1_adder (nab, first_operand, second_operand, isSub);
 			break;
 
 		case AMA2 :
-			return AMA2_adder (nab, first_operand, second_operand);
+			return AMA2_adder (nab, first_operand, second_operand, isSub);
 			break;
 
 		case AMA3 :
-			return AMA3_adder (nab, first_operand, second_operand);
+			return AMA3_adder (nab, first_operand, second_operand, isSub);
 			break;
 
 		case AMA4 :
-			return AMA4_adder (nab, first_operand, second_operand);
+			return AMA4_adder (nab, first_operand, second_operand, isSub);
 			break;
 
 		case AXA1 :
-			return AXA1_adder (nab, first_operand, second_operand);
+			return AXA1_adder (nab, first_operand, second_operand, isSub);
 			break;
 
 		case AXA2 :
-			return AXA2_adder (nab, first_operand, second_operand);
+			return AXA2_adder (nab, first_operand, second_operand, isSub);
 			break;
 
 		case AXA3 :
-			return AXA3_adder (nab, first_operand, second_operand);
+			return AXA3_adder (nab, first_operand, second_operand, isSub);
 			break;
 	
 	}
