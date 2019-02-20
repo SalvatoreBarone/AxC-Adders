@@ -31,14 +31,15 @@
 static bool AMA1_sum(const bool&, const bool&, const bool&);
 static bool AMA1_carry(const bool&, const bool&, const bool&);
 
-int AMA1_adder(int nab, int first_operand, int second_operand )
+int AMA1_adder(int nab, int first_operand, int second_operand, bool isSub)
 {
 	return generic_adder(
 		nab, 
 		first_operand, 
 		second_operand, 
 		AMA1_sum,
-		AMA1_carry
+		AMA1_carry,
+		isSub
 	);
 }
 

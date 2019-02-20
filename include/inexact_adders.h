@@ -41,17 +41,17 @@ enum InexactAdderType{
     AXA3  = 9
 };
 
-int InAx1_adder (int nab, int first_operand, int second_operand);
-int InAx2_adder (int nab, int first_operand, int second_operand);
-int InAx3_adder (int nab, int first_operand, int second_operand);
-int AMA1_adder  (int nab, int first_operand, int second_operand);
-int AMA2_adder  (int nab, int first_operand, int second_operand);
-int AMA3_adder  (int nab, int first_operand, int second_operand);
-int AMA4_adder  (int nab, int first_operand, int second_operand);
-int AXA1_adder  (int nab, int first_operand, int second_operand);
-int AXA2_adder  (int nab, int first_operand, int second_operand);
-int AXA3_adder  (int nab, int first_operand, int second_operand);
+int InAx1_adder (int nab, int first_operand, int second_operand, bool isSub);
+int InAx2_adder (int nab, int first_operand, int second_operand, bool isSub);
+int InAx3_adder (int nab, int first_operand, int second_operand, bool isSub);
+int AMA1_adder  (int nab, int first_operand, int second_operand, bool isSub);
+int AMA2_adder  (int nab, int first_operand, int second_operand, bool isSub);
+int AMA3_adder  (int nab, int first_operand, int second_operand, bool isSub);
+int AMA4_adder  (int nab, int first_operand, int second_operand, bool isSub);
+int AXA1_adder  (int nab, int first_operand, int second_operand, bool isSub);
+int AXA2_adder  (int nab, int first_operand, int second_operand, bool isSub);
+int AXA3_adder  (int nab, int first_operand, int second_operand, bool isSub);
 
-int inexactAdder(int nab, int first_operand, int second_operand, InexactAdderType cellType);
+int inexactAdder(int nab, int first_operand, int second_operand, bool isSub, InexactAdderType cellType);
 
 #endif /* INEXACT_ADDERS_H */

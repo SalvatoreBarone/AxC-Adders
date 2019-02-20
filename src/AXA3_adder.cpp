@@ -31,14 +31,15 @@
 static bool AXA3_sum(const bool&, const bool&, const bool&);
 static bool AXA3_carry(const bool&, const bool&, const bool&);
 
-int AXA3_adder(int nab, int first_operand, int second_operand )
+int AXA3_adder(int nab, int first_operand, int second_operand, bool isSub)
 {
 	return generic_adder(
 		nab, 
 		first_operand, 
 		second_operand, 
 		AXA3_sum,
-		AXA3_carry
+		AXA3_carry,
+		isSub
 	);
 }
 
