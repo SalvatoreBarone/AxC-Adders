@@ -36,7 +36,7 @@ To use the inexact addition, include the header file in your source file, then u
 All the sum functions provide a parameter called ```NAB``` that stands for **N**umber of **A**proximate **B**its and represents the number of the least significant bits that are computed with the chosen inexact adder cell. 
 Note that the remaining ```n-NAB``` digits are computed as an exact sum.
 
-The input operands are of type ```int``` and are managed as **32-bits unsigned integer numbers**.
+The input operands are of type ```int``` and are managed as **32-bits signed integer numbers**.
 
 ### Test the library
 --------
@@ -62,29 +62,31 @@ This library is implemented to be extended by adding new hardware cell models. I
 
 #### Choose your adder signature
 Open the file ```inexact_adders.h``` and add a new function declaration, that will be available outside of the library. 
-E.g. ```int MyCell_adder(int nab, int first_operand, int second_operand)```
+E.g. ```int MyCell_adder(int nab, int first_operand, int second_operand, bool isSub)```
 
 #### Define your model
 Create a new _cpp_ file into ```src``` folder. In this file you have to include ```inexact_adders_core.h``` and ```inexact_adders.h```. Now you have to implement the model of your hardware cell declaring the following two functions:
 * Sum function - ```bool MyCell_sum(const bool &a, const bool &b, const bool &cin)```
 * Carry function - ```bool MyCell_carry(const bool &a, const bool &b, const bool &cin)```
 
-Finally implement the function declared in the step 1. Be sure of using the ```generic_adder``` function, passing it:
+Finally implement the function declared in the step 1. Be sure of using the ```generic_adder``` function, by passing to it:
 * the number of approximate bits, 
 * the two operands, 
 * a pointer to sum function, 
-* a pointer to carry function.
+* a pointer to carry function,
+* a boolean value, indicating if the operation is a sub (```true```) or an add (```false```).
 
 An implementation could be the following:
 ```
-int MyCell_adder(int nab, int first_operand, int second_operand )
+int MyCell_adder(int nab, int first_operand, int second_operand, bool isSub )
 {
 	return generic_adder(
 		nab, 
 		first_operand, 
 		second_operand, 
 		MyCell_sum,
-		MyCell_carry
+		MyCell_carry,
+		isSub
 	);
 }
 ```
