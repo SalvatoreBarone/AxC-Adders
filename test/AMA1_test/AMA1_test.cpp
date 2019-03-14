@@ -32,6 +32,7 @@
 using namespace std;
 
 #include "inexact_adders.h"
+using namespace inexact_adders;
 
 BOOST_AUTO_TEST_CASE(AMA1_exact_sum)
 {    

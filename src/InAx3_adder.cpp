@@ -32,9 +32,9 @@
 static bool InAx3_sum(const bool&, const bool&, const bool&);
 static bool InAx3_carry(const bool&, const bool&, const bool&);
 
-int InAx3_adder(int nab, int first_operand, int second_operand, bool isSub)
+int inexact_adders::InAx3_adder(int nab, int first_operand, int second_operand, bool isSub)
 {
-	return generic_adder(
+	return inexact_adders::generic_adder(
 		nab, 
 		first_operand, 
 		second_operand, 

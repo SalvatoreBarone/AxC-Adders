@@ -31,9 +31,9 @@
 static bool AXA2_sum(const bool&, const bool&, const bool&);
 static bool AXA2_carry(const bool&, const bool&, const bool&);
 
-int AXA2_adder(int nab, int first_operand, int second_operand, bool isSub)
+int inexact_adders::AXA2_adder(int nab, int first_operand, int second_operand, bool isSub)
 {
-	return generic_adder(
+	return inexact_adders::generic_adder(
 		nab, 
 		first_operand, 
 		second_operand, 

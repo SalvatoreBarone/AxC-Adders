@@ -28,30 +28,75 @@
 #ifndef INEXACT_ADDERS_H
 #define INEXACT_ADDERS_H
 
-enum InexactAdderType{
-    InAx1 = 0,
-    InAx2 = 1,
-    InAx3 = 2,
-    AMA1  = 3,
-    AMA2  = 4,
-    AMA3  = 5,
-    AMA4  = 6,
-    AXA1  = 7,
-    AXA2  = 8,
-    AXA3  = 9
-};
+namespace inexact_adders{
 
-int InAx1_adder (int nab, int first_operand, int second_operand, bool isSub);
-int InAx2_adder (int nab, int first_operand, int second_operand, bool isSub);
-int InAx3_adder (int nab, int first_operand, int second_operand, bool isSub);
-int AMA1_adder  (int nab, int first_operand, int second_operand, bool isSub);
-int AMA2_adder  (int nab, int first_operand, int second_operand, bool isSub);
-int AMA3_adder  (int nab, int first_operand, int second_operand, bool isSub);
-int AMA4_adder  (int nab, int first_operand, int second_operand, bool isSub);
-int AXA1_adder  (int nab, int first_operand, int second_operand, bool isSub);
-int AXA2_adder  (int nab, int first_operand, int second_operand, bool isSub);
-int AXA3_adder  (int nab, int first_operand, int second_operand, bool isSub);
+    enum InexactAdderType{
+        InAx1 = 0,
+        InAx2 = 1,
+        InAx3 = 2,
+        AMA1  = 3,
+        AMA2  = 4,
+        AMA3  = 5,
+        AMA4  = 6,
+        AXA1  = 7,
+        AXA2  = 8,
+        AXA3  = 9
+    };
 
-int inexactAdder(int nab, int first_operand, int second_operand, bool isSub, InexactAdderType cellType);
+    int InAx1_adder (int nab, int first_operand, int second_operand, bool isSub);
+    int InAx2_adder (int nab, int first_operand, int second_operand, bool isSub);
+    int InAx3_adder (int nab, int first_operand, int second_operand, bool isSub);
+    int AMA1_adder  (int nab, int first_operand, int second_operand, bool isSub);
+    int AMA2_adder  (int nab, int first_operand, int second_operand, bool isSub);
+    int AMA3_adder  (int nab, int first_operand, int second_operand, bool isSub);
+    int AMA4_adder  (int nab, int first_operand, int second_operand, bool isSub);
+    int AXA1_adder  (int nab, int first_operand, int second_operand, bool isSub);
+    int AXA2_adder  (int nab, int first_operand, int second_operand, bool isSub);
+    int AXA3_adder  (int nab, int first_operand, int second_operand, bool isSub);
+
+    int inexactAdder(int nab, int first_operand, int second_operand, bool isSub, inexact_adders::InexactAdderType cellType);
+
+    namespace metrics {
+
+        #define FA_TRANSISTOR_COUNT         10
+        #define InAx1_TRANSISTOR_COUNT      10
+        #define InAx2_TRANSISTOR_COUNT      10
+        #define InAx3_TRANSISTOR_COUNT      10
+        #define AMA1_TRANSISTOR_COUNT       10
+        #define AMA2_TRANSISTOR_COUNT       10
+        #define AMA3_TRANSISTOR_COUNT       10
+        #define AMA4_TRANSISTOR_COUNT       10
+        #define AXA1_TRANSISTOR_COUNT       10
+        #define AXA2_TRANSISTOR_COUNT       10
+        #define AXA3_TRANSISTOR_COUNT       10
+
+        #define FA_DELAY_NS                 10
+        #define InAx1_DELAY_NS              10
+        #define InAx2_DELAY_NS              10
+        #define InAx3_DELAY_NS              10
+        #define AMA1_DELAY_NS               10
+        #define AMA2_DELAY_NS               10
+        #define AMA3_DELAY_NS               10
+        #define AMA4_DELAY_NS               10
+        #define AXA1_DELAY_NS               10
+        #define AXA2_DELAY_NS               10
+        #define AXA3_DELAY_NS               10
+
+        #define FA_ENERGY_FJ                10
+        #define InAx1_ENERGY_FJ             10
+        #define InAx2_ENERGY_FJ             10
+        #define InAx3_ENERGY_FJ             10
+        #define AMA1_ENERGY_FJ              10
+        #define AMA2_ENERGY_FJ              10
+        #define AMA3_ENERGY_FJ              10
+        #define AMA4_ENERGY_FJ              10
+        #define AXA1_ENERGY_FJ              10
+        #define AXA2_ENERGY_FJ              10
+        #define AXA3_ENERGY_FJ              10
+
+    }
+
+}
+
 
 #endif /* INEXACT_ADDERS_H */

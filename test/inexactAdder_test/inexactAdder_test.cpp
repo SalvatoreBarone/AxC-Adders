@@ -32,66 +32,68 @@
 using namespace std;
 
 #include "inexact_adders.h"
+using namespace inexact_adders;
+
 
 BOOST_AUTO_TEST_CASE(inexactAdder_exact_sum)
 {    
     /* InAx1 */
-    BOOST_CHECK_EQUAL(inexactAdder(0,0,0,0, InAx1), 0);
-    BOOST_CHECK_EQUAL(inexactAdder(0,0,1,0, InAx1), 1);
-    BOOST_CHECK_EQUAL(inexactAdder(0,1,0,0, InAx1), 1);
-    BOOST_CHECK_EQUAL(inexactAdder(0,1,1,0, InAx1), 2);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,0,0,0, InAx1), 0);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,0,1,0, InAx1), 1);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,1,0,0, InAx1), 1);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,1,1,0, InAx1), 2);
 
     /* InAx2 */
-    BOOST_CHECK_EQUAL(inexactAdder(0,0,0,0, InAx2), 0);
-    BOOST_CHECK_EQUAL(inexactAdder(0,0,1,0, InAx2), 1);
-    BOOST_CHECK_EQUAL(inexactAdder(0,1,0,0, InAx2), 1);
-    BOOST_CHECK_EQUAL(inexactAdder(0,1,1,0, InAx2), 2);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,0,0,0, InAx2), 0);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,0,1,0, InAx2), 1);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,1,0,0, InAx2), 1);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,1,1,0, InAx2), 2);
 
     /* InAx3 */
-    BOOST_CHECK_EQUAL(inexactAdder(0,0,0,0, InAx3), 0);
-    BOOST_CHECK_EQUAL(inexactAdder(0,0,1,0, InAx3), 1);
-    BOOST_CHECK_EQUAL(inexactAdder(0,1,0,0, InAx3), 1);
-    BOOST_CHECK_EQUAL(inexactAdder(0,1,1,0, InAx3), 2);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,0,0,0, InAx3), 0);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,0,1,0, InAx3), 1);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,1,0,0, InAx3), 1);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,1,1,0, InAx3), 2);
 
     /* AMA1 */
-    BOOST_CHECK_EQUAL(inexactAdder(0,0,0,0, AMA1), 0);
-    BOOST_CHECK_EQUAL(inexactAdder(0,0,1,0, AMA1), 1);
-    BOOST_CHECK_EQUAL(inexactAdder(0,1,0,0, AMA1), 1);
-    BOOST_CHECK_EQUAL(inexactAdder(0,1,1,0, AMA1), 2);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,0,0,0, AMA1), 0);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,0,1,0, AMA1), 1);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,1,0,0, AMA1), 1);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,1,1,0, AMA1), 2);
 
     /* AMA2 */
-    BOOST_CHECK_EQUAL(inexactAdder(0,0,0,0, AMA2), 0);
-    BOOST_CHECK_EQUAL(inexactAdder(0,0,1,0, AMA2), 1);
-    BOOST_CHECK_EQUAL(inexactAdder(0,1,0,0, AMA2), 1);
-    BOOST_CHECK_EQUAL(inexactAdder(0,1,1,0, AMA2), 2);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,0,0,0, AMA2), 0);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,0,1,0, AMA2), 1);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,1,0,0, AMA2), 1);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,1,1,0, AMA2), 2);
 
     /* AMA3 */
-    BOOST_CHECK_EQUAL(inexactAdder(0,0,0,0, AMA3), 0);
-    BOOST_CHECK_EQUAL(inexactAdder(0,0,1,0, AMA3), 1);
-    BOOST_CHECK_EQUAL(inexactAdder(0,1,0,0, AMA3), 1);
-    BOOST_CHECK_EQUAL(inexactAdder(0,1,1,0, AMA3), 2);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,0,0,0, AMA3), 0);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,0,1,0, AMA3), 1);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,1,0,0, AMA3), 1);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,1,1,0, AMA3), 2);
 
     /* AMA4 */
-    BOOST_CHECK_EQUAL(inexactAdder(0,0,0,0, AMA4), 0);
-    BOOST_CHECK_EQUAL(inexactAdder(0,0,1,0, AMA4), 1);
-    BOOST_CHECK_EQUAL(inexactAdder(0,1,0,0, AMA4), 1);
-    BOOST_CHECK_EQUAL(inexactAdder(0,1,1,0, AMA4), 2);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,0,0,0, AMA4), 0);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,0,1,0, AMA4), 1);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,1,0,0, AMA4), 1);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,1,1,0, AMA4), 2);
 
     /* AXA1 */
-    BOOST_CHECK_EQUAL(inexactAdder(0,0,0,0, AXA1), 0);
-    BOOST_CHECK_EQUAL(inexactAdder(0,0,1,0, AXA1), 1);
-    BOOST_CHECK_EQUAL(inexactAdder(0,1,0,0, AXA1), 1);
-    BOOST_CHECK_EQUAL(inexactAdder(0,1,1,0, AXA1), 2);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,0,0,0, AXA1), 0);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,0,1,0, AXA1), 1);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,1,0,0, AXA1), 1);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,1,1,0, AXA1), 2);
 
     /* AXA2 */
-    BOOST_CHECK_EQUAL(inexactAdder(0,0,0,0, AXA2), 0);
-    BOOST_CHECK_EQUAL(inexactAdder(0,0,1,0, AXA2), 1);
-    BOOST_CHECK_EQUAL(inexactAdder(0,1,0,0, AXA2), 1);
-    BOOST_CHECK_EQUAL(inexactAdder(0,1,1,0, AXA2), 2);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,0,0,0, AXA2), 0);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,0,1,0, AXA2), 1);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,1,0,0, AXA2), 1);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,1,1,0, AXA2), 2);
 
     /* AXA3 */
-    BOOST_CHECK_EQUAL(inexactAdder(0,0,0,0, AXA3), 0);
-    BOOST_CHECK_EQUAL(inexactAdder(0,0,1,0, AXA3), 1);
-    BOOST_CHECK_EQUAL(inexactAdder(0,1,0,0, AXA3), 1);
-    BOOST_CHECK_EQUAL(inexactAdder(0,1,1,0, AXA3), 2);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,0,0,0, AXA3), 0);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,0,1,0, AXA3), 1);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,1,0,0, AXA3), 1);
+    BOOST_CHECK_EQUAL(inexact_adders::inexactAdder(0,1,1,0, AXA3), 2);
 }

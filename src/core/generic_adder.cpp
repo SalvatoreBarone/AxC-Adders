@@ -28,8 +28,9 @@
 #include "inexact_adders_core.h"
 #include "inexact_adders.h"
 #include <bitset> 
+#include <assert.h>
 
-int generic_adder(int nab, int first, int second, 
+int inexact_adders::generic_adder(int nab, int first, int second, 
 	bool (*inexact_adder_sum_func)(const bool&, const bool&, const bool&), 
 	bool (*inexact_adder_carry_func)(const bool&, const bool&, const bool&),
 	bool isSub)
@@ -47,8 +48,8 @@ int generic_adder(int nab, int first, int second,
 	}
 
 	for(int i=nab; i<length;i++){		
-		sum[i] 		= FA_sum(a[i], b[i], carry[i]);
-		carry[i+1] 	= FA_carry(a[i], b[i], carry[i]);
+		sum[i] 		= inexact_adders::FA_sum(a[i], b[i], carry[i]);
+		carry[i+1] 	= inexact_adders::FA_carry(a[i], b[i], carry[i]);
 	}
 
 	sum[length] = carry[length];
@@ -56,48 +57,50 @@ int generic_adder(int nab, int first, int second,
 	return ( (int)(sum.to_ulong()) );
 }
 
-int inexactAdder(int nab, int first_operand, int second_operand, bool isSub, InexactAdderType cellType){
+int inexact_adders::inexactAdder(int nab, int first_operand, int second_operand, bool isSub, inexact_adders::InexactAdderType cellType){
 
 	switch (cellType) {
-		case InAx1 :
-			return InAx1_adder (nab, first_operand, second_operand, isSub);
+		case inexact_adders::InAx1 :
+			return inexact_adders::InAx1_adder (nab, first_operand, second_operand, isSub);
 			break;
 
-		case InAx2 :
-			return InAx2_adder (nab, first_operand, second_operand, isSub);
+		case inexact_adders::InAx2 :
+			return inexact_adders::InAx2_adder (nab, first_operand, second_operand, isSub);
 			break;
 
-		case InAx3 :
-			return InAx3_adder (nab, first_operand, second_operand, isSub);
+		case inexact_adders::InAx3 :
+			return inexact_adders::InAx3_adder (nab, first_operand, second_operand, isSub);
 			break;
 
-		case AMA1 :
-			return AMA1_adder (nab, first_operand, second_operand, isSub);
+		case inexact_adders::AMA1 :
+			return inexact_adders::AMA1_adder (nab, first_operand, second_operand, isSub);
 			break;
 
-		case AMA2 :
-			return AMA2_adder (nab, first_operand, second_operand, isSub);
+		case inexact_adders::AMA2 :
+			return inexact_adders::AMA2_adder (nab, first_operand, second_operand, isSub);
 			break;
 
-		case AMA3 :
-			return AMA3_adder (nab, first_operand, second_operand, isSub);
+		case inexact_adders::AMA3 :
+			return inexact_adders::AMA3_adder (nab, first_operand, second_operand, isSub);
 			break;
 
-		case AMA4 :
-			return AMA4_adder (nab, first_operand, second_operand, isSub);
+		case inexact_adders::AMA4 :
+			return inexact_adders::AMA4_adder (nab, first_operand, second_operand, isSub);
 			break;
 
-		case AXA1 :
-			return AXA1_adder (nab, first_operand, second_operand, isSub);
+		case inexact_adders::AXA1 :
+			return inexact_adders::AXA1_adder (nab, first_operand, second_operand, isSub);
 			break;
 
-		case AXA2 :
-			return AXA2_adder (nab, first_operand, second_operand, isSub);
+		case inexact_adders::AXA2 :
+			return inexact_adders::AXA2_adder (nab, first_operand, second_operand, isSub);
 			break;
 
-		case AXA3 :
-			return AXA3_adder (nab, first_operand, second_operand, isSub);
+		case inexact_adders::AXA3 :
+			return inexact_adders::AXA3_adder (nab, first_operand, second_operand, isSub);
 			break;
+		default:
+			assert(false && "\nCell not supported.");
 	
 	}
 

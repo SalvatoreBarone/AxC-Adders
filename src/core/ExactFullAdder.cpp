@@ -27,7 +27,7 @@
 
 #include "inexact_adders_core.h"
 
-bool FA_sum(const bool& a, const bool& b, const bool& c_in){
+bool inexact_adders::FA_sum(const bool& a, const bool& b, const bool& c_in){
     if(	(0 == a && 0 == b && 1 == c_in) ||
 	   	(0 == a && 1 == b && 0 == c_in) ||
 	   	(1 == a && 0 == b && 0 == c_in) ||		
@@ -38,7 +38,7 @@ bool FA_sum(const bool& a, const bool& b, const bool& c_in){
 	}
 }
 
-bool FA_carry(const bool& a, const bool& b, const bool& c_in){
+bool inexact_adders::FA_carry(const bool& a, const bool& b, const bool& c_in){
     if(	(0 == a && 1 == b && 1 == c_in) ||
 	   	(1 == a && 0 == b && 1 == c_in) ||
 	   	(1 == a && 1 == b && 0 == c_in) ||		
