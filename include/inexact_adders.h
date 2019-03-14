@@ -58,41 +58,41 @@ namespace inexact_adders{
 
     namespace metrics {
 
-        #define FA_TRANSISTOR_COUNT         10
-        #define InAx1_TRANSISTOR_COUNT      10
-        #define InAx2_TRANSISTOR_COUNT      10
-        #define InAx3_TRANSISTOR_COUNT      10
-        #define AMA1_TRANSISTOR_COUNT       10
-        #define AMA2_TRANSISTOR_COUNT       10
-        #define AMA3_TRANSISTOR_COUNT       10
-        #define AMA4_TRANSISTOR_COUNT       10
-        #define AXA1_TRANSISTOR_COUNT       10
-        #define AXA2_TRANSISTOR_COUNT       10
-        #define AXA3_TRANSISTOR_COUNT       10
+        const int FA_TRANSISTOR_COUNT         = 10;
+        const int InAx1_TRANSISTOR_COUNT      = 10;
+        const int InAx2_TRANSISTOR_COUNT      = 10;
+        const int InAx3_TRANSISTOR_COUNT      = 10;
+        const int AMA1_TRANSISTOR_COUNT       = 10;
+        const int AMA2_TRANSISTOR_COUNT       = 10;
+        const int AMA3_TRANSISTOR_COUNT       = 10;
+        const int AMA4_TRANSISTOR_COUNT       = 10;
+        const int AXA1_TRANSISTOR_COUNT       = 10;
+        const int AXA2_TRANSISTOR_COUNT       = 10;
+        const int AXA3_TRANSISTOR_COUNT       = 10;
 
-        #define FA_DELAY_NS                 10
-        #define InAx1_DELAY_NS              10
-        #define InAx2_DELAY_NS              10
-        #define InAx3_DELAY_NS              10
-        #define AMA1_DELAY_NS               10
-        #define AMA2_DELAY_NS               10
-        #define AMA3_DELAY_NS               10
-        #define AMA4_DELAY_NS               10
-        #define AXA1_DELAY_NS               10
-        #define AXA2_DELAY_NS               10
-        #define AXA3_DELAY_NS               10
+        const int FA_DELAY_NS                 = 10;
+        const int InAx1_DELAY_NS              = 10;
+        const int InAx2_DELAY_NS              = 10;
+        const int InAx3_DELAY_NS              = 10;
+        const int AMA1_DELAY_NS               = 10;
+        const int AMA2_DELAY_NS               = 10;
+        const int AMA3_DELAY_NS               = 10;
+        const int AMA4_DELAY_NS               = 10;
+        const int AXA1_DELAY_NS               = 10;
+        const int AXA2_DELAY_NS               = 10;
+        const int AXA3_DELAY_NS               = 10;
 
-        #define FA_ENERGY_FJ                10
-        #define InAx1_ENERGY_FJ             10
-        #define InAx2_ENERGY_FJ             10
-        #define InAx3_ENERGY_FJ             10
-        #define AMA1_ENERGY_FJ              10
-        #define AMA2_ENERGY_FJ              10
-        #define AMA3_ENERGY_FJ              10
-        #define AMA4_ENERGY_FJ              10
-        #define AXA1_ENERGY_FJ              10
-        #define AXA2_ENERGY_FJ              10
-        #define AXA3_ENERGY_FJ              10
+        const int FA_ENERGY_FJ                = 10;
+        const int InAx1_ENERGY_FJ             = 10;
+        const int InAx2_ENERGY_FJ             = 10;
+        const int InAx3_ENERGY_FJ             = 10;
+        const int AMA1_ENERGY_FJ              = 10;
+        const int AMA2_ENERGY_FJ              = 10;
+        const int AMA3_ENERGY_FJ              = 10;
+        const int AMA4_ENERGY_FJ              = 10;
+        const int AXA1_ENERGY_FJ              = 10;
+        const int AXA2_ENERGY_FJ              = 10;
+        const int AXA3_ENERGY_FJ              = 10;
 
     }
 
